@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To my love &lt3</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #000000, #000265);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+    
+    h1 span{
+      color: red
+    }
+
+    span{
+      color: rgb(255, 252, 93)
+    }
+
+    .contador {
+      font-size: 25px;
+      background-color: rgba(0, 145, 255, 0.2);
+      padding: 15px 30px;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      color: rgb(255, 252, 93);
+    }
+  </style>
+</head>
+<body>
+  <h1>Eu te amoo muitooo <span>&lt3</span></h1>
+  <img src="C:\Users\muril\Documents\Projetos_próprios\Pessoal\Thay_and_me.jpeg" alt="Coração" />
+  <h3>Você é muito <span>especial</span> para mim vidaa!<br>Te dedico um site apenas para te mostrar e te lembrar o quanto eu te <span>amoooo</span>!</h3>
+  <h4>Agora você sempre poderá acessar este site onde quiser que for e leva-lo, pelo QR Code, para onde quiser!</h4>
+  <div class="contador" id="contador"></div>
+
+  <script>
+    const dataInicial = new Date("2024-05-03T00:00:00");
+
+    function atualizarContador() {
+      const agora = new Date();
+      let diff = agora - dataInicial;
+
+      const segundos = Math.floor(diff / 1000) % 60;
+      const minutos = Math.floor(diff / (1000 * 60)) % 60;
+      const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
+      const diasTotais = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      let anos = agora.getFullYear() - dataInicial.getFullYear();
+      let meses = agora.getMonth() - dataInicial.getMonth();
+      let dias = agora.getDate() - dataInicial.getDate();
+
+      if (dias < 0) {
+        meses--;
+        dias += new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+      }
+
+      if (meses < 0) {
+        anos--;
+        meses += 12;
+      }
+
+      document.getElementById("contador").innerHTML =
+        `${anos} anos, ${meses} meses, ${dias} dias<br>` +
+        `${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+</body>
+</html>
